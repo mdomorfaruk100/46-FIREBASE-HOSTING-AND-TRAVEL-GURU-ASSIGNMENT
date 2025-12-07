@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { createUserWithEmailAndPassword, initializeFirebaseApp, signInWithEmailAndPassword, signInWithGoogle, signOutUser } from './loginManager';
+import { useContext, useState } from 'react';
+import { createUserWithEmailAndPassword, initializeFirebaseApp, resetPassword, signInWithEmailAndPassword, signInWithGoogle, signOutUser } from './loginManager';
 import { UserContext } from '../../App';
 import { useLocation, useNavigate } from 'react-router';
 
@@ -14,17 +14,19 @@ const Login = () => {
         error: '',
         success: false,
     });
+
     const [, setLoggedInUser] = useContext(UserContext);
+
     initializeFirebaseApp();
-    
+
     const location = useLocation();
 
-    const from = location.state || {from: '/'}
+    const from = location.state || { from: '/' }
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
         signInWithGoogle().then(res => {
-            if(res){
+            if (res) {
                 handleResponse(res, true);
             }
         })
@@ -50,16 +52,16 @@ const Login = () => {
     const handleSubmit = (event) => {
         if (newUser && user.name && user.password) {
             createUserWithEmailAndPassword(user.name, user.email, user.password)
-            .then(res => {
-                handleResponse(res, true);
-            })
+                .then(res => {
+                    handleResponse(res, true);
+                })
         }
         console.log('object', user);
         if (!newUser && user.email && user.password) {
             signInWithEmailAndPassword(user.email, user.password)
-            .then(res => {
-                handleResponse(res, true)
-            })
+                .then(res => {
+                    handleResponse(res, true)
+                })
         }
         event.preventDefault();
     }
@@ -72,13 +74,14 @@ const Login = () => {
     }
 
     const handleResponse = (res, isNavigate) => {
+        console.log(res);
         setUser(res);
         setLoggedInUser(res);
-        if(isNavigate){
+        if (isNavigate) {
             navigate(from.from);
         }
     }
-    
+
     return (
         <div style={{ textAlign: 'center' }}>
             {
@@ -98,12 +101,14 @@ const Login = () => {
                     newUser && <input type='text' name='name' placeholder='Enter Your Name' onChange={handleChange} />
                 }
                 <br />
-                <input onChange={handleChange} type='email' name='email' placeholder='Your Email Address' />
+                <input onChange={handleChange} type='text' name='email' placeholder='Your Email Address' />
                 <br />
-                <input onChange={handleChange} type='password' name='password' placeholder='Your Password' />
+                <input onChange={handleChange} type='text' name='password' placeholder='Your Password' />
                 <br />
                 <button >Sign In</button>
             </form>
+            <br />
+            <button onClick={() => resetPassword(user.email)}>Forget for Reset Password</button>
         </div>
     );
 };

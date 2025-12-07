@@ -1,15 +1,24 @@
-# 45_5-1 How to Publish a React application in Firebase
+# 46-2 Email Verification Password Reset of an User
 
-## go to firebase base project on firebase website. And to to hosting option and click on get started button.
+##  sendEmailVerification() method is used to send email verification link to a user.  This method used on  currentUser. this method return a  promise.
 
-## npm install -g firebase-tools -> is used to install firebase-tools command as global package. to host our project on firebase.
+### ==> const currentUser = firebase.auth().currentUser;
+### ==> currentUser.sendEmailVerification()
+### ==>      .then(function () {
+### ==>           console.log('sended');
+### ==>      })
+### ==>      .catch(function (error) {
+### ==>           console.log(error.message);
+### ==>      })
 
-## firebase login -> command is to login in firebase with cmd
 
-## firebase init -> command is to initialize as firebase project
+## sendPasswordResetEmail() method is used to send password reset link to a user email address. this method is used to auth(). email is the param of the method. this method return a promise.
 
-## firebase deploy -> command is to deploy our project on firebase hosting.
-
-# if we update our application. 
-## 1st we need to rebuild our project by using 'npm run build' command.
-## then we will run 'firebase deploy' command.
+### ==> const auth = firebase.auth();
+### ==> auth.sendPasswordResetEmail(email)
+### ==>      .then(() => {
+### ==>           console.log('reset link sended');
+### ==>      })
+### ==>      .catch(error => {
+### ==>           console.log('Error: ', error);
+### ==>      });

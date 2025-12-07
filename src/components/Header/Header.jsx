@@ -7,7 +7,6 @@ import { signInWithGoogle, signOutUser } from '../Login/loginManager';
 
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
     const handleClick = () => {
         if (loggedInUser.email) {
             // sign out user 
@@ -29,8 +28,10 @@ const Header = () => {
             <nav>
                 <Link to='/shop'>Shop</Link>
                 <Link to='/review'>Order Review</Link>
-                <Link to='/inventory'>Inventory</Link>
-                {loggedInUser.email && <Link to='/' style={{color: 'yellow'}}>{'Welcome, ' + loggedInUser.name}</Link>}
+                <Link to='/orders'>Order History</Link>
+                {
+                    loggedInUser.email && <span style={{color: 'yellow'}}>Welcome, {loggedInUser.name}</span>
+                }
                 <button onClick={handleClick} style={{ marginBottom: '5px' }}>{loggedInUser.email ? 'Sign Out' : 'Sign In'}</button>
             </nav>
         </div>

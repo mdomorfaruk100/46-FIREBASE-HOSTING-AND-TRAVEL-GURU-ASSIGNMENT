@@ -3,10 +3,10 @@ import 'firebase/compat/auth';
 import firebaseConfig from './firebaseConfig';
 console.log('this file is loaded');
 // export const initializeFirebaseApp = () => {
-     firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 // }
 
-export const initializeFirebaseApp = () => {}
+export const initializeFirebaseApp = () => { }
 
 export const signInWithGoogle = () => {
      const provider = new firebase.auth.GoogleAuthProvider();
@@ -34,6 +34,7 @@ export const createUserWithEmailAndPassword = (name, email, password) => {
                newUserInfo.success = true;
                newUserInfo.isSignedIn = true;
                updateUserName(name);
+               verifyEmail();
                return newUserInfo;
           }).catch(error => {
                const newUserInfo = {};
@@ -86,4 +87,27 @@ const updateUserName = (name) => {
      })
 }
 
+const verifyEmail = () => {
+     console.log('sending');
+     const currentUser = firebase.auth().currentUser;
+     currentUser.sendEmailVerification()
+          .then(function () {
+               console.log('sended');
+          })
+          .catch(function (error) {
+               console.log(error.message);
+          })
+}
+
+
+export const resetPassword = email => {
+     const auth = firebase.auth();
+     auth.sendPasswordResetEmail(email)
+          .then(() => {
+               console.log('reset link sended');
+          })
+          .catch(error => {
+               console.log('Error: ', error);
+          });
+}
 
