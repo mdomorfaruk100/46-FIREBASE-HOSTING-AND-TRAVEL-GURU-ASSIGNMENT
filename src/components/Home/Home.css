@@ -1,0 +1,66 @@
+.background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 7;
+    height: 100%;
+    width: 100%;
+}
+
+.background .overlay {
+    height: 100%;
+    background-color: black;
+    opacity: .5;
+}
+.card{
+    background: transparent;
+}
+.content {
+    position: relative;
+    z-index: 8;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-align: left;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.content .top {
+    display: flex;
+    align-items: center;
+}
+
+.content .left,
+.content .right {
+    width: 50%;
+}
+
+.content .right {
+    white-space: nowrap;
+}
+
+
+.bottom {
+    text-align: center;
+}
+
+.active {
+    border: 5px solid #FFBF00;
+}
+
+.content .top .left h1 {
+    font-size: 72px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.content .top .left p{
+    font-size: 19.5px;
+    margin-bottom: 1.5rem;
+}
+
+
+

@@ -1,0 +1,83 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+.header header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+header .page-logo, header .nav-items{
+    flex: auto;
+}
+
+header .page-logo{
+    text-align: left;
+}
+
+header .page-logo img{
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+.nav-items ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: end;
+    color: white;
+}
+
+.nav-items ul li{
+    margin-left: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-box{
+    max-width: 500px;
+    width: 100%;
+}
+
+.search{
+    height: 49px;
+    width: 100%;
+    border: 2px solid white;
+    background-color: #b3b3b38f;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.search .icon{
+    color: white;
+    font-size: 26px;
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+}
+
+.search input{
+    height: 100%;
+    width: calc(100% - 50px);
+    border: none;
+    outline: none;
+    vertical-align: bottom;
+    background: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+
+.search input::placeholder{
+    color: white;
+}

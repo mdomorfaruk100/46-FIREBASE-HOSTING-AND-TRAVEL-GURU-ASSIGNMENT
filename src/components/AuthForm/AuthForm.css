@@ -1,0 +1,40 @@
+.title h2{
+    font-weight: 700;
+}
+label{
+    font-size: 19px !important;
+    font-weight: 500 !important;
+}
+
+input{
+    font-size: 20px !important;
+    font-weight: 500 !important;
+}
+
+.bottom-text{
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.bottom-text a{
+    font-size: inherit;
+}
+.divider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.3rem 0;
+}
+
+.divider hr{
+    width: 30%;
+}
+
+.divider span{
+    font-size: 20px;
+    font-weight: 600;
+    width: 60px;
+    text-align: center;
+
+}

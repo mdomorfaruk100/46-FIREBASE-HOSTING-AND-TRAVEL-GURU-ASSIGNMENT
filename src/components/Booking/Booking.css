@@ -1,0 +1,50 @@
+.form-container {
+    background-color: white;
+    width: 75%;
+    margin: auto;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.form-control {
+    background: #0000001a;
+    padding: 0.875rem 1.15rem;
+    border: none;
+    outline: none;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.form-control:focus {
+    background-color: #0000001a;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-label {
+    margin-bottom: .5rem;
+    color: #000000bd;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.parent {
+    display: flex;
+    gap: 1rem;
+}
+
+.child-1,
+.child-2 {
+    flex: 1;
+}
+
+.extra-btn{
+    padding: 1.075rem 1.15rem;
+    margin-top: 8px;
+    width: 100%;
+}
